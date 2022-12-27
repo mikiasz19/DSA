@@ -9,34 +9,26 @@ typedef struct node
 node *head = NULL;
 void insert(int data, int n)
 {
+     node *temp1 = (node *)malloc(sizeof(node));
+    (*temp1).data = data;
+    (*temp1).prev = NULL;
     if (n == 1)
     {
-        node *new_node1 = (node *)malloc(sizeof(node));
-        (*new_node1).data = data;
-        (*new_node1).next = head;
-        (*new_node1).prev = NULL;
-        if (head != NULL)
-        {
-            (*head).prev = new_node1;
-        }
-        head = new_node1;
+        (*temp1).next = head;
+        head = temp1;
+        return;
     }
     else
     {
-        node *temp = head;
+        node *temp2 = head;
         for (int i = 0; i < n - 2; i++)
         {
-            temp = (*temp).next;
+            temp2 = (*temp2).next; // n-1
         }
-        node *new_node2 = (node *)malloc(sizeof(node));
-        (*new_node2).data = data;
-        (*new_node2).next = (*temp).next;
-        (*new_node2).prev = temp;
-        if ((*temp).next != NULL)
-        {
-            (*temp).next->prev = new_node2;
-        }
-        (*temp).next = new_node2;
+        (*temp1).next = (*temp2).next; // bond between n and n-1
+        // sewing
+        (*temp2).next = temp1;
+        (*temp1).prev = temp2;
     }
 }
 void printing()
