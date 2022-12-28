@@ -80,8 +80,8 @@ int main(void)
     insert(root, 11);
     insert(root, 10);
     insert(root, 19);
-    //delete (root, 3);
-    //delete (root, 1);
+    delete (root, 3);
+    delete (root, 1);
 
     printf("Enter number be searched: ");
     scanf("%d", &number);
@@ -104,8 +104,6 @@ int main(void)
     printf("\nPostorder: ");
     postorder(root);
     printf("\nMAX = %d\n", findmax(root));
-    // printf("\nMIN = %d\n", findmin(root));
-    // printf("\nHEIGHT = %d\n", findheight(root));
 
     freeingl(root);
     freeingr(root);
@@ -158,7 +156,7 @@ node *findmin(node *root)
 {
      if (root == NULL)
     {
-        return -1;
+        root = NULL;
     }
     while ((*root).left != NULL)
     {
