@@ -9,7 +9,7 @@
  * Preorder
  * Postorder
  * Inorder
- * Finding MIN, MAX, HEIGHT
+ * Finding MAX
  *
  */
 typedef struct node
